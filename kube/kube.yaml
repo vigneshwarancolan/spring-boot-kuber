@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test
+  template:
+    metadata:
+      labels:
+        app: test
+    spec:
+      containers:
+        - name: app
+          image: karthikjvdocker/test-service:1.0.0
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: test
+spec:
+  type: NodePort
+  selector:
+    app: test
+  ports:
+  - name: test-api-service
+    protocol: TCP
+    nodePort: 30100
+    port: 8080
+    targetPort: 8080
