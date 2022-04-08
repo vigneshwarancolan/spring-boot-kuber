@@ -18,7 +18,7 @@ env:
   GITHUB_SHA: ${{ github.sha }}
   IBM_CLOUD_API_KEY: nuqICzRXYR58VJxKA77tmiMquUya9rCAuG0SvUe-YQmY
   IBM_CLOUD_REGION: us-south
-  ICR_NAMESPACE: github-actions
+  ICR_NAMESPACE: github-action-resource-group
   REGISTRY_HOSTNAME: us.icr.io
   IMAGE_NAME: iks-test
   IKS_CLUSTER: c8s6mjvf0b7utq4ndre0
