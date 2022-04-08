@@ -16,9 +16,9 @@ on:
 # Environment variables available to all jobs and steps in this workflow
 env:
   GITHUB_SHA: ${{ github.sha }}
-  IBM_CLOUD_API_KEY: nuqICzRXYR58VJxKA77tmiMquUya9rCAuG0SvUe-YQmY
+  IBM_CLOUD_API_KEY: PPudRtKx_cDx0a4HfPsVxCC06_JnMuEN-bgv2pEsl1Jt
   IBM_CLOUD_REGION: us-south
-  ICR_NAMESPACE: Default
+  ICR_NAMESPACE: ${{ secrets.ICR_NAMESPACE }}
   REGISTRY_HOSTNAME: us.icr.io
   IMAGE_NAME: iks-test
   IKS_CLUSTER: c8s6mjvf0b7utq4ndre0
@@ -47,7 +47,7 @@ jobs:
     # Authenticate with IBM Cloud CLI
     - name: Authenticate with IBM Cloud CLI
       run: |
-        ibmcloud login --apikey "nuqICzRXYR58VJxKA77tmiMquUya9rCAuG0SvUe-YQmY" -r "${IBM_CLOUD_REGION}" -g default
+        ibmcloud login --apikey "PPudRtKx_cDx0a4HfPsVxCC06_JnMuEN-bgv2pEsl1Jt" -r "${IBM_CLOUD_REGION}" -g default
         ibmcloud cr region-set "${IBM_CLOUD_REGION}"
         ibmcloud cr login
 
