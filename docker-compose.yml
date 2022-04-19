@@ -1,7 +1,7 @@
 version: "3.3"
 services:     
   auth:
-    build: ./docker-kuber
+    build: ./
     ports:
       - 7111:7111
     restart: on-failure
