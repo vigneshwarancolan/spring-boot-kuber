@@ -3,7 +3,7 @@ services:
   auth:
     build: ./
     ports:
-      - 7111:7111
+      - 8080:8080
     restart: on-failure
     volumes:
       - .m2:/root/.m2
