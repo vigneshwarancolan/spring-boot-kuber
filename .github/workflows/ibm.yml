@@ -19,7 +19,7 @@ env:
   IBM_CLOUD_API_KEY: C_6MHUt-W1fOs0HPqk-BAuVknhUXEqHNtQEOea13iIDu
   IBM_CLOUD_REGION: eu-de
   ICR_NAMESPACE: kuber-github-action
-  REGISTRY_HOSTNAME: icr.io
+  REGISTRY_HOSTNAME: de.icr.io
   IMAGE_NAME: kuber-tests
   IKS_CLUSTER: c9glhrff03onjt9mvtpg
   DEPLOYMENT_NAME: kuber-tests
