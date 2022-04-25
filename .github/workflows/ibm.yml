@@ -17,9 +17,9 @@ on:
 env:
   GITHUB_SHA: ${{ github.sha }}
   IBM_CLOUD_API_KEY: ${{ secrets.IBM_CLOUD_API_KEY }}
-  IBM_CLOUD_REGION: eu-de
+  IBM_CLOUD_REGION: eu-central
   ICR_NAMESPACE: ${{ secrets.ICR_NAMESPACE }}
-  REGISTRY_HOSTNAME: us.icr.io
+  REGISTRY_HOSTNAME: de.icr.io
   IMAGE_NAME: kuber-test
   IKS_CLUSTER: c9glhrff03onjt9mvtpg
   DEPLOYMENT_NAME: kuber-test
