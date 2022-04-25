@@ -17,9 +17,9 @@ on:
 env:
   GITHUB_SHA: ${{ github.sha }}
   IBM_CLOUD_API_KEY: C_6MHUt-W1fOs0HPqk-BAuVknhUXEqHNtQEOea13iIDu
-  IBM_CLOUD_REGION: global
+  IBM_CLOUD_REGION: eu-de
   ICR_NAMESPACE: kuber-github-action
-  REGISTRY_HOSTNAME: icr.io
+  REGISTRY_HOSTNAME: de.icr.io
   IMAGE_NAME: kuber-tests
   IKS_CLUSTER: c9glhrff03onjt9mvtpg
   DEPLOYMENT_NAME: kuber-tests
@@ -55,19 +55,19 @@ jobs:
     - name: Build with Docker
       run: |
         docker pull hello-world
-        docker tag hello-world de.icr.io/kuber-github-action/my_repository:2.0
+        docker tag hello-world de.icr.io/kuber-github-action/my_repository1:2.0
 
     # Push the image to IBM Container Registry
     - name: Push the image to ICR
       run: |
-        docker push de.icr.io/kuber-github-action/my_repository:2.0
+        docker push de.icr.io/kuber-github-action/my_repository1:2.0
 
     # Deploy the Docker image to the IKS cluster
     - name: Deploy to IKS
       run: |
         ibmcloud ks cluster config --cluster $IKS_CLUSTER
         kubectl config current-context
-        kubectl create deployment $DEPLOYMENT_NAME --image=de.icr.io/kuber-github-action/my_repository:2.0 --dry-run -o yaml > deployment.yaml
+        kubectl create deployment $DEPLOYMENT_NAME --image=de.icr.io/kuber-github-action/my_repository1:2.0 --dry-run -o yaml > deployment.yaml
         kubectl apply -f deployment.yaml
         kubectl rollout status deployment/$DEPLOYMENT_NAME
         kubectl create service loadbalancer $DEPLOYMENT_NAME --tcp=80:$PORT --dry-run -o yaml > service.yaml
