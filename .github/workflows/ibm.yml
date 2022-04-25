@@ -20,9 +20,9 @@ env:
   IBM_CLOUD_REGION: eu-de
   ICR_NAMESPACE: ${{ secrets.ICR_NAMESPACE }}
   REGISTRY_HOSTNAME: de.icr.io
-  IMAGE_NAME: kuber-test
+  IMAGE_NAME: kuber-tests
   IKS_CLUSTER: c9glhrff03onjt9mvtpg
-  DEPLOYMENT_NAME: kuber-test
+  DEPLOYMENT_NAME: kuber-tests
   PORT: 8080
 
 jobs:
