@@ -56,7 +56,7 @@ jobs:
       run: |
         ibmcloud ks cluster config --cluster $IKS_CLUSTER
         kubectl config current-context
-        kubectl create deployment $DEPLOYMENT_NAME --image=de.icr.io/kuber-github-action/my_repository:1.0 --dry-run -o yaml > deployment.yaml
+        kubectl create deployment $DEPLOYMENT_NAME --image=de.icr.io/kuber-github-action/my_repository@sha256:f54a58bc1aac5ea1a25d796ae155dc228b3f0e11d046ae276b39c4bf2f13d8c4 --dry-run -o yaml > deployment.yaml
         kubectl apply -f deployment.yaml
         kubectl rollout status deployment/$DEPLOYMENT_NAME
         kubectl create service loadbalancer $DEPLOYMENT_NAME --tcp=80:$PORT --dry-run -o yaml > service.yaml
