@@ -23,7 +23,7 @@ env:
   IMAGE_NAME: kuber-tests
   IKS_CLUSTER: c9glhrff03onjt9mvtpg
   DEPLOYMENT_NAME: kuber-tests
-  PORT: 8080
+  PORT: 8081
 
 jobs:
   setup-build-publish-deploy:
