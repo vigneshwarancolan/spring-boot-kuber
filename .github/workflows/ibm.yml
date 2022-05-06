@@ -62,8 +62,6 @@ jobs:
         kubectl apply -f https://k8s.io/examples/pods/probe/exec-liveness.yaml
         kubectl describe pod liveness-exec
         kubectl get pods -o wide
-        kubectl create service loadbalancer $DEPLOYMENT_NAME --tcp=9070:$PORT --dry-run=client -o yaml > service.yaml
-        kubectl apply -f service.yaml
         kubectl create service nodeport $DEPLOYMENT_NAME --tcp=9070:$PORT --dry-run=client -o yaml > servicenode.yaml
         kubectl apply -f servicenode.yaml
         kubectl get services -o wide
