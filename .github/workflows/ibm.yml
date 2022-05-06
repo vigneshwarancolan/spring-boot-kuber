@@ -23,7 +23,7 @@ env:
   IMAGE_NAME: kuber-test
   IKS_CLUSTER: c9glhrff03onjt9mvtpg
   DEPLOYMENT_NAME: kuber-test
-  PORT: 8080
+  PORT: 9080
 
 jobs:
   setup-build-publish-deploy:
@@ -59,8 +59,8 @@ jobs:
         kubectl create deployment $DEPLOYMENT_NAME --image=websphere-liberty --dry-run=client -o yaml > deployment.yaml
         kubectl apply -f deployment.yaml
         kubectl rollout status deployment/$DEPLOYMENT_NAME
-        kubectl create service loadbalancer $DEPLOYMENT_NAME --tcp=80:$PORT --dry-run=client -o yaml > service.yaml
+        kubectl create service loadbalancer $DEPLOYMENT_NAME --tcp=9080:$PORT --dry-run=client -o yaml > service.yaml
         kubectl apply -f service.yaml
-        kubectl create service nodeport $DEPLOYMENT_NAME --tcp=80:$PORT --dry-run=client -o yaml > servicenode.yaml
+        kubectl create service nodeport $DEPLOYMENT_NAME --tcp=9080:$PORT --dry-run=client -o yaml > servicenode.yaml
         kubectl apply -f servicenode.yaml
         kubectl get services -o wide
