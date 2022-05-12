@@ -63,3 +63,8 @@ jobs:
         kubectl create service nodeport $DEPLOYMENT_NAME --tcp=9080:$PORT --dry-run=client -o yaml > servicenode.yaml
         kubectl apply -f servicenode.yaml
         kubectl get services -o wide
+        ibmcloud ks cluster get -c c9glhrff03onjt9mvtpg
+        kubectl describe deploy kuber-test
+        kubectl get pods
+        kubectl describe pod kuber-test-5f8bbbccd6-jx6lb
+        
